@@ -8,7 +8,7 @@
   <ul>
     <% @list.bookmarks.each do |bookmark| %>
     <li>
-      <%= bookmark.movie.title %> <%= bookmark.comment %>
+      <%= image_tag bookmark.movie.poster_url, width: 50, height: 50 %> | <%= bookmark.movie.title %> | <%= bookmark.comment %>
       <%= link_to "Delete",
         bookmark_path(bookmark),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
