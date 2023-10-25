@@ -3,8 +3,9 @@
   <div class="navbar-lewagon">
     <h1><%= @list.name %></h1>
   </div>
-
+  <% if @list.picture.attached? %>
   <%= cl_image_tag @list.picture.key, height: 100, width: 100, crop: :fill%>
+  <% end %>
 
 
   <ul>
