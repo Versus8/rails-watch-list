@@ -1,11 +1,17 @@
   <div class="navbar-lewagon">
-    <h1>Movies</h1>
+    <h1>Movie lists</h1>
   </div>
 
 <div class="container">
   <ul>
     <% @lists.each do |list| %>
-    <li> <%= link_to list.name, list_path(list) %> </li>
+    <li>
+      <% if list.picture.attached? %>
+      <%= cl_image_tag list.picture.key, height: 50, width: 50, crop: :fill %>
+      <% end %>
+      <%= link_to list.name, list_path(list) %>
+
+    </li>
     <% end %>
   </ul>
 

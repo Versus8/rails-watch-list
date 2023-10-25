@@ -3,9 +3,11 @@
   <div class="navbar-lewagon">
     <h1>This list</h1>
   </div>
+    <%= cl_image_tag @list.picture.key, height: 100, width: 100, crop: :fill%>
 
 
   <ul>
+
     <% @list.bookmarks.each do |bookmark| %>
     <li>
       <%= image_tag bookmark.movie.poster_url, width: 50, height: 50 %> | <%= bookmark.movie.title %> | <%= bookmark.comment %>
