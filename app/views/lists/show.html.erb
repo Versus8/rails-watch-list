@@ -1,6 +1,5 @@
 
-<div class="container">
-  <div class="navbar-lewagon">
+  <div class="navbar-lewagon p-2 m-2">
     <h1><%= @list.name %></h1>
   </div>
   <% if @list.picture.attached? %>
@@ -8,6 +7,7 @@
   <% end %>
 
 
+<div class="container p-2 border">
   <ul>
 
     <% @list.bookmarks.each do |bookmark| %>
@@ -23,5 +23,19 @@
 
   <%= link_to "Add movie", new_list_bookmark_path(@list) %>
   <%= link_to "Back to the lists", root_path %>
+
+  <div class="p-4">
+    <ul>
+      <% @list.reviews.each do |review| %>
+        <li> <%= review.content %> </li>
+      <% end %>
+    </ul>
+  </div>
+
+
+  <%= simple_form_for [@list, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.button :submit%>
+  <% end %>
 
 </div>

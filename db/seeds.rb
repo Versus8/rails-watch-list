@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'faker'
+# require 'faker'
 
 puts "clear"
 Movie.delete_all
@@ -23,7 +23,29 @@ Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal masterm
 end
 
 puts 'Done'
+puts "creating lists"
 
 10.times do
   List.create(name: Faker::Name.unique.first_name + " favorite movies")
 end
+
+# require "json"
+# require "open-uri"
+
+# url = 'https://tmdb.lewagon.com/movie/top_rated'
+# response = URI.open(url).read
+# repos = JSON.parse(response)
+
+# # repos est un tableau de hash
+
+# results = repos['results']
+
+# results.each do |result|
+#   movie = Movie.new(
+#     title: result['original_title'],
+#     overview: result['overview'],
+#     poster_url: 'https://image.tmdb.org/t/p/w500#{result["poster_path"]}',
+#     rating: result['vote_average']
+#   )
+#   movie.save!
+# end
